@@ -19,6 +19,9 @@ RUN wget --no-verbose -O /tmp/apache-maven-${MAVEN_VERSION}.tar.gz http://archiv
  && ln -s /opt/maven/bin/mvn /usr/local/bin \
  && rm -f /tmp/apache-maven-${MAVEN_VERSION}.tar.gz
 
+# Update settings.xml
+# Externalise repository?
+
 ENV MAVEN_HOME /opt/maven
 
 # Install java
