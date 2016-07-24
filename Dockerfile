@@ -3,8 +3,8 @@ FROM ubuntu:16.04
 MAINTAINER Houzard Jean-François <jhouzard@gmail.com>
 
 ENV MAVEN_VERSION=3.2.5
-ENV JAVA_VERSION_MAJOR=6
-ENV JAVA_VERSION_MINOR=45
+ENV JAVA_VERSION_MAJOR=8
+ENV JAVA_VERSION_MINOR=101
 ENV JAVA_VERSION_BUILD=06
 
 # update dpkg repositories
@@ -16,7 +16,6 @@ RUN apt-get update \
 RUN wget --no-verbose -O /tmp/apache-maven-${MAVEN_VERSION}.tar.gz http://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
  && tar xzf /tmp/apache-maven-${MAVEN_VERSION}.tar.gz -C /opt/ \
  && ln -s /opt/apache-maven-${MAVEN_VERSION} /opt/maven \
- && ln -s /opt/maven/bin/mvn /usr/local/bin \
  && rm -f /tmp/apache-maven-${MAVEN_VERSION}.tar.gz
 
 # Update settings.xml
@@ -33,4 +32,4 @@ RUN wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2
  && ln -s /opt/oracle-jdk-1.${JAVA_VERSION_MAJOR}.0_${JAVA_VERSION_MINOR} /opt/java
 
 ENV JAVA_HOME /opt/java
-ENV PATH $JAVA_HOME/bin:$PATH
+ENV PATH $JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
