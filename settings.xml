@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+
+    <mirrors>
+        <mirror>
+            <id>nexus-public-releases</id>
+            <url>http://maven.aris-lux.lan/nexus/content/groups/public</url>
+            <mirrorOf>!sonar,!arhs-repo-snapshots,!arhs-repo-releases,*</mirrorOf>
+        </mirror>
+    </mirrors>
+
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <!-- EXAMPLE FOR MYSQL -->
+                <sonar.jdbc.url>jdbc:mysql://sonar.aris-brx.lan:3306/sonar?useUnicode=true&amp;characterEncoding=utf8</sonar.jdbc.url>
+                <sonar.jdbc.driver>com.mysql.jdbc.Driver</sonar.jdbc.driver>
+                <sonar.jdbc.username>sonar</sonar.jdbc.username>
+                <sonar.jdbc.password>Ghu75rf!</sonar.jdbc.password>
+
+                <!-- SERVER ON A REMOTE HOST -->
+                <sonar.host.url>http://sonar.aris-brx.lan</sonar.host.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>arhs</id>
+            <repositories>
+                <repository>
+                    <id>arhs-repo-releases</id>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>http://maven.aris-lux.lan/nexus/content/repositories/ARhS</url>
+                </repository>
+                <repository>
+                    <id>arhs-repo-snapshots</id>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <url>http://maven.aris-lux.lan/nexus/content/repositories/arhs-snapshots</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>arhs</activeProfile>
+        <activeProfile>gitlab</activeProfile>
+    </activeProfiles>
+
+    <servers>
+        <server>
+            <id>arhs-repo</id>
+            <username>deployer</username>
+            <password>2VWdgOT*nyQlY+VM</password>
+        </server>
+        <server>
+            <id>arhs-repo-snapshots</id>
+            <username>deployer</username>
+            <password>2VWdgOT*nyQlY+VM</password>
+        </server>
+        <server>
+            <id>arhs-repo-releases</id>
+            <username>deployer</username>
+            <password>2VWdgOT*nyQlY+VM</password>
+        </server>
+
+        <server>
+            <id>maasview-localhost</id>
+            <username>tomcat</username>
+            <password>s3cret</password>
+        </server>
+        <server>
+            <id>atto-localhost</id>
+            <username>admin</username>
+            <password/>
+        </server>
+
+    </servers>
+
+</settings>
