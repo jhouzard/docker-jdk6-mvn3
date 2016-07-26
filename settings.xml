@@ -55,7 +55,6 @@
 
     <activeProfiles>
         <activeProfile>arhs</activeProfile>
-        <activeProfile>gitlab</activeProfile>
     </activeProfiles>
 
     <servers>
