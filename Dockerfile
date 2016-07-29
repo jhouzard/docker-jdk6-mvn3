@@ -7,6 +7,9 @@ ENV JAVA_VERSION_MAJOR=6
 ENV JAVA_VERSION_MINOR=45
 ENV JAVA_VERSION_BUILD=06
 
+ENV TZ=Europe/Luxembourg
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # update dpkg repositories
 RUN apt-get update \
  && apt-get install -y wget \
