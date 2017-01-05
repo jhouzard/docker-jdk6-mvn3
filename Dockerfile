@@ -37,4 +37,8 @@ RUN wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2
 ENV JAVA_HOME /opt/java
 ENV PATH $JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH
 
+ENV GIT_TRACE_PACKET=1
+ENV GIT_TRACE=1
+ENV GIT_CURL_VERBOSE=1
+
 COPY settings.xml /opt/maven/conf
