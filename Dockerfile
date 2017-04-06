@@ -8,7 +8,10 @@ ENV JAVA_VERSION_MINOR=45
 ENV JAVA_VERSION_BUILD=06
 
 ENV TZ=Europe/Luxembourg
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 # update dpkg repositories
 RUN apt-get update \
